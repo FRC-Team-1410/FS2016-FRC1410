@@ -15,8 +15,8 @@ void Robot::RobotInit(){
 }
 
 void Robot::AutonomousInit(){
-	auto_command = (Command *) auto_choice->GetSelected();
-	auto_command->Start();
+	//auto_command = (Command *) auto_choice->GetSelected();
+	//auto_command->Start();
 }
 
 void Robot::AutonomousPeriodic(){
@@ -24,7 +24,7 @@ void Robot::AutonomousPeriodic(){
 }
 
 void Robot::TeleopInit(){
-	auto_command->Cancel();
+	//auto_command->Cancel();
 }
 
 void Robot::TeleopPeriodic(){

@@ -14,6 +14,8 @@ private:
 
 	AnalogGyro * drive_gyro;
 
+	Preferences * prefs;
+
 public:
 	DriveBase();
 	void InitDefaultCommand();

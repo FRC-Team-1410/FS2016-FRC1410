@@ -30,8 +30,12 @@ float InputShape(float userValue){
 OI::OI(){
 	driver_stick = new Joystick(0);
 	operator_stick = new Joystick(1);
+
+	prefs = Preferences::GetInstance();
 }
 
 double OI::GetDriveAxis(int axis){
-	return -(InputShape((float)driver_stick->GetRawAxis(axis))); //returns a modified value from the axis
+	float drive_multiplier = prefs->GetFloat("DriveMultiplier", 1.0);
+	SmartDashboard::PutNumber("DriveMultiplier", drive_multiplier);
+	return -(InputShape((float)driver_stick->GetRawAxis(axis) * drive_multiplier));
 }

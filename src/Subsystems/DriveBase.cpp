@@ -12,6 +12,8 @@ DriveBase::DriveBase() : Subsystem("DriveBase"){
 	mr_motor = new CANTalon(middleRightDrive);
 
 	drive_gyro = new AnalogGyro(0);
+
+	prefs = Preferences::GetInstance();
 }
 
 void DriveBase::InitDefaultCommand(){
@@ -19,13 +21,32 @@ void DriveBase::InitDefaultCommand(){
 }
 
 void DriveBase::DriveTank(float left_speed, float right_speed){
-
-	fl_motor->Set(left_speed);
-	fr_motor->Set(right_speed);
-	bl_motor->Set(left_speed);
-	br_motor->Set(right_speed);
-	//ml_motor->Set(left_speed);
-	//mr_motor->Set(right_speed);
+	int number_motors = prefs->GetInt("NumberMotors", 4);
+	SmartDashboard::PutNumber("NumberMotors", number_motors);
+	if(number_motors == 2){
+		fl_motor->Set(left_speed);
+		fr_motor->Set(right_speed);
+	}
+	else if(number_motors == 4){
+		fl_motor->Set(left_speed);
+		fr_motor->Set(right_speed);
+		bl_motor->Set(left_speed);
+		br_motor->Set(right_speed);
+	}
+	else if(number_motors == 6){
+		fl_motor->Set(left_speed);
+		fr_motor->Set(right_speed);
+		bl_motor->Set(left_speed);
+		br_motor->Set(right_speed);
+		ml_motor->Set(left_speed);
+		mr_motor->Set(right_speed);
+	}
+	else{
+		fl_motor->Set(left_speed);
+		fr_motor->Set(right_speed);
+		bl_motor->Set(left_speed);
+		br_motor->Set(right_speed);
+	}
 }
 
 float DriveBase::ReturnEncoderDistance(float e1, float e2, float distance){

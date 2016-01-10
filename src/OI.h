@@ -7,6 +7,7 @@ class OI{
 private:
 	Joystick * driver_stick;
 	Joystick * operator_stick;
+	Preferences * prefs;
 
 public:
 	OI();
