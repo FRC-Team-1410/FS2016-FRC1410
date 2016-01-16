@@ -12,6 +12,9 @@ void Robot::RobotInit(){
 	
 	auto_choice = new SendableChooser();
 	SmartDashboard::PutData("Autonomous Mode", auto_choice);
+
+	//CameraServer::GetInstance()->SetQuality(50);
+	//CameraServer::GetInstance()->StartAutomaticCapture("cam0");
 }
 
 void Robot::AutonomousInit(){
