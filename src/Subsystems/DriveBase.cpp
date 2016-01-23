@@ -21,32 +21,38 @@ void DriveBase::InitDefaultCommand(){
 }
 
 void DriveBase::DriveTank(float left_speed, float right_speed){
-	int number_motors = prefs->GetInt("NumberMotors", 4);
-	SmartDashboard::PutNumber("NumberMotors", number_motors);
-	if(number_motors == 2){
-		fl_motor->Set(left_speed);
-		fr_motor->Set(right_speed);
+	DriveExponential(left_speed, right_speed);
+}
+
+void DriveBase::DriveExponential(float l, float r){
+	float left_exponential;
+	float right_exponential;
+	int exponential_mode = prefs->GetInt("ExponentialMode", 1);
+
+	if(exponential_mode == 1){
+		left_exponential = l;
+		right_exponential = r;
 	}
-	else if(number_motors == 4){
-		fl_motor->Set(left_speed);
-		fr_motor->Set(right_speed);
-		bl_motor->Set(left_speed);
-		br_motor->Set(right_speed);
+	else if(exponential_mode == 2){
+		left_exponential = l * l * l;
+		right_exponential = r * r * r;
 	}
-	else if(number_motors == 6){
-		fl_motor->Set(left_speed);
-		fr_motor->Set(right_speed);
-		bl_motor->Set(left_speed);
-		br_motor->Set(right_speed);
-		ml_motor->Set(left_speed);
-		mr_motor->Set(right_speed);
+	else if(exponential_mode == 3){
+		left_exponential = (l + (l * l * l)) / 2;
+		right_exponential = (r + (r * r * r)) / 2;
+	}
+	else if(exponential_mode == 4){
+		left_exponential = (l + (l * l * l) + (l * l * l * l * l)) / 3;
+		right_exponential = (r + (r * r * r) + (r * r * r * r * r)) / 3;
 	}
 	else{
-		fl_motor->Set(left_speed);
-		fr_motor->Set(right_speed);
-		bl_motor->Set(left_speed);
-		br_motor->Set(right_speed);
+		left_exponential = l;
+		right_exponential = r;
 	}
+	fl_motor->Set(left_exponential);
+	fr_motor->Set(right_exponential);
+	bl_motor->Set(left_exponential);
+	br_motor->Set(right_exponential);
 }
 
 float DriveBase::ReturnEncoderDistance(float e1, float e2, float distance){
@@ -76,3 +82,5 @@ float DriveBase::ReturnGyroPosition(){
 void DriveBase::ResetGyro(){
 	drive_gyro->Reset();
 }
+
+

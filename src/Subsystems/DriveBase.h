@@ -20,6 +20,7 @@ public:
 	DriveBase();
 	void InitDefaultCommand();
 	void DriveTank(float left_speed, float right_speed);
+	void DriveExponential(float left_speed, float right_speed);
 
 	float ReturnEncoderDistance(float e1, float e2, float distance);
 	void ResetEncoderPosition();
