@@ -21,7 +21,10 @@ void DriveBase::InitDefaultCommand(){
 }
 
 void DriveBase::DriveTank(float left_speed, float right_speed){
-	DriveExponential(left_speed, right_speed);
+	fl_motor->Set(left_speed);
+	fr_motor->Set(right_speed);
+	bl_motor->Set(left_speed);
+	br_motor->Set(right_speed);
 }
 
 void DriveBase::DriveExponential(float l, float r){
