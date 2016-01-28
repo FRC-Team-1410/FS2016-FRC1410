@@ -1,16 +1,17 @@
-#ifndef TeleOpWinchClimber_H
-#define TeleOpWinchClimber_H
+#ifndef TeleOpToggleClimber_H
+#define TeleOpToggleClimber_H
 
 #include "Commands/Command.h"
 #include "WPILib.h"
 
-class TeleOpWinchClimber: public Command {
+class TeleOpToggleClimber: public Command {
 private:
 	Preferences * prefs;
 	float speed;
+	bool move_up;
 
 public:
-	TeleOpWinchClimber();
+	TeleOpToggleClimber();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

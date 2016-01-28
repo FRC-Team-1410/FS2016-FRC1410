@@ -1,31 +1,30 @@
-#include <Commands/Drive Base/TeleOpTankDrive.h>
+#include <Commands/Climber/TeleOpWinchClimber.h>
 #include "Robot.h"
 #include "../../RobotMap.h"
 
-TeleOpTankDrive::TeleOpTankDrive(){
-	Requires(Robot::drivebase);
+TeleOpWinchClimber::TeleOpWinchClimber(){
+	Requires(Robot::climber);
+
+	prefs = Preferences::GetInstance();
+	speed = prefs->GetFloat("Winch Speed", 0.5);
 }
 
-void TeleOpTankDrive::Initialize(){
+void TeleOpWinchClimber::Initialize(){
 
 }
 
-void TeleOpTankDrive::Execute(){
-	Robot::drivebase->DriveExponential(Robot::oi->GetDriveAxis(tankLeftAxis), -1 * Robot::oi->GetDriveAxis(tankRightAxis));
-	SmartDashboard::PutNumber("Left Speed", Robot::oi->GetDriveAxis(tankLeftAxis));
-	SmartDashboard::PutNumber("Right Speed", Robot::oi->GetDriveAxis(tankRightAxis));
+void TeleOpWinchClimber::Execute(){
+	Robot::climber->WinchClimber(speed);
 }
 
-bool TeleOpTankDrive::IsFinished(){
+bool TeleOpWinchClimber::IsFinished(){
 	return false;
 }
 
-void TeleOpTankDrive::End(){
-	SmartDashboard::PutNumber("Left Speed", 0);
-	SmartDashboard::PutNumber("Right Speed", 0);
-	Robot::drivebase->DriveExponential(0, 0);
+void TeleOpWinchClimber::End(){
+	Robot::climber->WinchClimber(0);
 }
 
-void TeleOpTankDrive::Interrupted(){
+void TeleOpWinchClimber::Interrupted(){
 	End();
 }
