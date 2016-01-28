@@ -12,3 +12,19 @@ DefenseManipulator::DefenseManipulator() : Subsystem("DefenseManipulator"){
 void DefenseManipulator::InitDefaultCommand(){
 
 }
+
+void DefenseManipulator::RotateManipulator(float speed){
+	rotation_motor->Set(speed);
+}
+
+float DefenseManipulator::ReturnManipulatorAngle(){
+	return rotation_potentiometer->Get();
+}
+
+bool DefenseManipulator::ReturnUpLimit(){
+	return rotation_motor->IsFwdLimitSwitchClosed();
+}
+
+bool DefenseManipulator::ReturnDownLimit(){
+	return rotation_motor->IsRevLimitSwitchClosed();
+}

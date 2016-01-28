@@ -14,7 +14,7 @@ public:
 	DefenseManipulator();
 	void InitDefaultCommand();
 	void RotateManipulator(float speed);
-	float ReturnManipulatorAngle(float speed);
+	float ReturnManipulatorAngle();
 	bool ReturnUpLimit();
 	bool ReturnDownLimit();
 };

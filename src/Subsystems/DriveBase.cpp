@@ -71,6 +71,7 @@ float DriveBase::ReturnEncoderDistance(float e1, float e2, float distance){
 }
 
 void DriveBase::ResetEncoderPosition(){
+	SmartDashboard::PutNumber("Encoder Distance", 0);
 	bl_motor->SetPosition(0);
 	br_motor->SetPosition(0);
 }
@@ -81,6 +82,7 @@ float DriveBase::ReturnGyroPosition(){
 }
 
 void DriveBase::ResetGyro(){
+	SmartDashboard::PutNumber("Gyro Angle", 0);
 	drive_gyro->Reset();
 }
 
