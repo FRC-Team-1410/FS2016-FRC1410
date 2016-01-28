@@ -1,6 +1,7 @@
 #include "Robot.h"
 #include "../RobotMap.h"
 #include "BallManipulator.h"
+#include "../Commands/Ball Manipulator/TeleOpMoveIntake.h"
 
 BallManipulator::BallManipulator() : Subsystem("BallManipulator"){
 	intake_motor = new CANTalon(ballIntakeMotor);
@@ -11,7 +12,7 @@ BallManipulator::BallManipulator() : Subsystem("BallManipulator"){
 }
 
 void BallManipulator::InitDefaultCommand(){
-
+	SetDefaultCommand(new TeleOpMoveIntake());
 }
 
 void BallManipulator::DriveIntake(float speed){

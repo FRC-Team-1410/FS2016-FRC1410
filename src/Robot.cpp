@@ -15,7 +15,6 @@ void Robot::RobotInit(){
 	defensemanipulator = new DefenseManipulator();
 
 	lw = LiveWindow::GetInstance();
-	ahrs = new AHRS(SerialPort::kMXP);
 	
 	auto_choice = new SendableChooser();
 	SmartDashboard::PutData("Autonomous Mode", auto_choice);

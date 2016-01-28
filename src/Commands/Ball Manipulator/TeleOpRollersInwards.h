@@ -1,14 +1,15 @@
-#ifndef TeleOpTankDrive_H
-#define TeleOpTankDrive_H
+#ifndef TeleOpRollersInwards_H
+#define TeleOpRollersInwards_H
 
 #include "Commands/Command.h"
 #include "WPILib.h"
 
-class TeleOpTankDrive: public Command {
+class TeleOpRollersInwards: public Command {
 private:
-
+	Preferences * prefs;
+	float speed;
 public:
-	TeleOpTankDrive();
+	TeleOpRollersInwards();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

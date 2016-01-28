@@ -1,15 +1,15 @@
-#ifndef TeleOpToggleRollers_H
-#define TeleOpToggleRollers_H
+#ifndef TeleOpRollersOutwards_H
+#define TeleOpRollersOutwards_H
 
 #include "Commands/Command.h"
 #include "WPILib.h"
 
-class TeleOpToggleRollers: public Command {
+class TeleOpRollersOutwards: public Command {
 private:
 	Preferences * prefs;
 	float speed;
 public:
-	TeleOpToggleRollers();
+	TeleOpRollersOutwards();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

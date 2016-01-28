@@ -1,6 +1,7 @@
 #include "Robot.h"
 #include "../RobotMap.h"
 #include "DefenseManipulator.h"
+#include "../Commands/Defense Manipulator/TeleOpMoveDefense.h"
 
 DefenseManipulator::DefenseManipulator() : Subsystem("DefenseManipulator"){
 	rotation_motor = new CANTalon(defenseRotationMotor);
@@ -10,7 +11,7 @@ DefenseManipulator::DefenseManipulator() : Subsystem("DefenseManipulator"){
 }
 
 void DefenseManipulator::InitDefaultCommand(){
-
+	SetDefaultCommand(new TeleOpMoveDefense());
 }
 
 void DefenseManipulator::RotateManipulator(float speed){

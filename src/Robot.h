@@ -2,7 +2,6 @@
 #define MY_ROBOT_H_
 
 #include "WPILib.h"
-#include "AHRS.h"
 
 #include "OI.h"
 #include "Subsystems/DriveBase.h"
@@ -20,7 +19,6 @@ public:
 
 private:
 	LiveWindow * lw;
-	AHRS * ahrs;
 	Command * auto_command;
 	SendableChooser * auto_choice;
 
