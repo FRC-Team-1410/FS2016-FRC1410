@@ -39,3 +39,7 @@ double OI::GetDriveAxis(int axis){
 	SmartDashboard::PutNumber("DriveMultiplier", drive_multiplier);
 	return -(InputShape((float)driver_stick->GetRawAxis(axis) * drive_multiplier));
 }
+
+double OI::GetOperatorAxis(int axis){
+	return InputShape((float)operator_stick->GetRawAxis(axis));
+}

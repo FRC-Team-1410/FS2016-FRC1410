@@ -12,6 +12,7 @@ private:
 public:
 	OI();
 	double GetDriveAxis(int axis);
+	double GetOperatorAxis(int axis);
 };
 
 #endif

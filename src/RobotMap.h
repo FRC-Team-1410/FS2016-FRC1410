@@ -39,4 +39,6 @@ const int defensePotentiometerChannel = 2;
 const int tankLeftAxis = 1;
 const int tankRightAxis = 5;
 
+const int ballManipulatorMovement = 1;
+const int defenseManipulatorMovement = 5;
 #endif /* ROBOTMAP_H_ */
