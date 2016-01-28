@@ -14,16 +14,29 @@ const int frontLeftDrive = 1;
 const int frontRightDrive = 2;
 const int backLeftDrive = 3;
 const int backRightDrive = 4;
-const int middleLeftDrive = 5;
-const int middleRightDrive = 6;
+
+//Climber motors
+const int leftClimberRotation = 5;
+const int rightClimberRotation = 6;
+const int leftClimberWinch = 7;
+
+//BallManipulator motors
+const int ballIntakeMotor = 8;
+const int ballRotationMotor = 9;
+
+//DefenseManiuplator motors
+const int defenseRotationMotor = 10;
+
+//Actuators
+const int climberRatchetActuator = 1;
+
+//Analog inputs
+const int autoDriveGyro = 0;
+const int ballPotentiometerChannel = 1;
+const int defensePotentiometerChannel = 2;
 
 //Controller constants
 const int tankLeftAxis = 1;
 const int tankRightAxis = 5;
-const int arcadeMovementAxis = 1;
-const int arcadeRotationAxis = 0;
-const int mecanumXAxis = 0;
-const int mecanumYAxis = 1;
-const int mecanumRotationAxis = 4;
 
 #endif /* ROBOTMAP_H_ */

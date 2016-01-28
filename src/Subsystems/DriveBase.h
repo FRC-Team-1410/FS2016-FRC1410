@@ -9,8 +9,6 @@ private:
 	CANTalon * fr_motor;
 	CANTalon * bl_motor;
 	CANTalon * br_motor;
-	CANTalon * ml_motor;
-	CANTalon * mr_motor;
 
 	AnalogGyro * drive_gyro;
 

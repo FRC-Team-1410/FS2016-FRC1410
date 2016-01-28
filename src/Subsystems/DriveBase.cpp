@@ -8,10 +8,8 @@ DriveBase::DriveBase() : Subsystem("DriveBase"){
 	fr_motor = new CANTalon(frontRightDrive);
 	bl_motor = new CANTalon(backLeftDrive);
 	br_motor = new CANTalon(backRightDrive);
-	ml_motor = new CANTalon(middleLeftDrive);
-	mr_motor = new CANTalon(middleRightDrive);
 
-	drive_gyro = new AnalogGyro(0);
+	drive_gyro = new AnalogGyro(autoDriveGyro);
 
 	prefs = Preferences::GetInstance();
 }
