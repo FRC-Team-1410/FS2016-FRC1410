@@ -37,7 +37,7 @@ OI::OI(){
 double OI::GetDriveAxis(int axis){
 	float drive_multiplier = prefs->GetFloat("DriveMultiplier", 1.0);
 	SmartDashboard::PutNumber("DriveMultiplier", drive_multiplier);
-	return -(InputShape((float)driver_stick->GetRawAxis(axis) * drive_multiplier));
+	return (InputShape((float)driver_stick->GetRawAxis(axis) * drive_multiplier));
 }
 
 double OI::GetOperatorAxis(int axis){
