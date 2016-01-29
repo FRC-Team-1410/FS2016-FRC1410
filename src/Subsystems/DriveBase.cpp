@@ -77,12 +77,14 @@ void DriveBase::ResetEncoderPosition(){
 }
 
 float DriveBase::ReturnGyroPosition(){
-	SmartDashboard::PutNumber("Gyro Angle", drive_gyro->GetAngle());
-	return drive_gyro->GetAngle();
+	float angle = drive_gyro->GetAngle();
+	if(angle > 180){
+		angle -= 360;
+	}
+	return angle;
 }
 
 void DriveBase::ResetGyro(){
-	SmartDashboard::PutNumber("Gyro Angle", 0);
 	drive_gyro->Reset();
 }
 
