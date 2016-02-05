@@ -41,4 +41,11 @@ const int tankRightAxis = 5;
 
 const int ballManipulatorMovement = 1;
 const int defenseManipulatorMovement = 5;
+
+//Buttons
+const int toggleIntakeInwards = 1;
+const int toggleIntakeOutwards = 2;
+const int winchClimber = 3;
+const int toggleClimberSolenoid = 4;
+
 #endif /* ROBOTMAP_H_ */

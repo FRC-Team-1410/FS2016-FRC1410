@@ -1,5 +1,11 @@
 #include "OI.h"
 #include "RobotMap.h"
+#include "Commands/Ball Manipulator/TeleOpMoveIntake.h"
+#include "Commands/Ball Manipulator/TeleOpRollersInwards.h"
+#include "Commands/Ball Manipulator/TeleOpRollersOutwards.h"
+#include "Commands/Climber/TeleOpToggleClimber.h"
+#include "Commands/Climber/TeleOpWinchCLimber.h"
+#include "Commands/Drive Base/TeleOpTankDrive.h"
 
 const char inputShape[255] = {0,1,3,4,5,6,7,9,10,11,12,13,15,16,17,18,19,21,22,23,24,25,27,28,29,30,31,
  	        33,34,35,36,37,38,40,41,42,43,44,46,47,48,49,50,52,53,54,55,56,58,59,60,61,62,
@@ -32,6 +38,16 @@ OI::OI(){
 	operator_stick = new Joystick(1);
 
 	prefs = Preferences::GetInstance();
+
+	toggle_intake_inwards = new JoystickButton(operator_stick, toggleIntakeInwards);
+	toggle_intake_outwards = new JoystickButton(operator_stick, toggleIntakeOutwards);
+	winch_climber = new JoystickButton(operator_stick, winchClimber);
+	toggle_climber_solenoid = new JoystickButton(operator_stick, toggleClimberSolenoid);
+
+	toggle_intake_inwards->ToggleWhenPressed(new TeleOpRollersInwards());
+	toggle_intake_outwards->ToggleWhenPressed(new TeleOpRollersOutwards());
+	winch_climber->WhileHeld(new TeleOpWinchClimber());
+	toggle_climber_solenoid->ToggleWhenPressed(new TeleOpToggleClimber());
 }
 
 double OI::GetDriveAxis(int axis){

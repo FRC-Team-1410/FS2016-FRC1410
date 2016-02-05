@@ -5,14 +5,12 @@ OI * Robot::oi = NULL;
 DriveBase * Robot::drivebase = NULL;
 Climber * Robot::climber = NULL;
 BallManipulator * Robot::ballmanipulator = NULL;
-DefenseManipulator * Robot::defensemanipulator = NULL;
 
 void Robot::RobotInit(){
 	oi = new OI();
 	drivebase = new DriveBase();
 	climber = new Climber();
 	ballmanipulator = new BallManipulator();
-	defensemanipulator = new DefenseManipulator();
 
 	lw = LiveWindow::GetInstance();
 	
