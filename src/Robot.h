@@ -17,7 +17,7 @@ public:
 
 private:
 	LiveWindow * lw;
-	Command * auto_command;
+	//Command * auto_command;
 	SendableChooser * auto_choice;
 
 	void RobotInit();

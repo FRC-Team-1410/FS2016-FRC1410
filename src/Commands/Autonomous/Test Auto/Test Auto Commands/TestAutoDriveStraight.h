@@ -7,6 +7,9 @@
 class TestAutoDriveStraight: public Command {
 private:
 	float angle;
+	float deviation;
+	float left_speed;
+	float right_speed;
 public:
 	TestAutoDriveStraight();
 	void Initialize();

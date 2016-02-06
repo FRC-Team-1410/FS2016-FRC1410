@@ -23,6 +23,8 @@ void DriveBase::DriveTank(float left_speed, float right_speed){
 	fr_motor->Set(right_speed);
 	bl_motor->Set(left_speed);
 	br_motor->Set(right_speed);
+	SmartDashboard::PutNumber("Left Speed", left_speed);
+	SmartDashboard::PutNumber("Right Speed", right_speed * -1);
 }
 
 void DriveBase::DriveExponential(float l, float r){
@@ -77,11 +79,14 @@ void DriveBase::ResetEncoderPosition(){
 }
 
 float DriveBase::ReturnGyroPosition(){
-	float angle = drive_gyro->GetAngle();
+	/**float angle = drive_gyro->GetAngle();
 	if(angle > 180){
 		angle -= 360;
 	}
-	return angle;
+	SmartDashboard::PutNumber("Gyro Angle", angle);
+	angle *= -1;
+	return angle;**/
+	return drive_gyro->GetAngle();
 }
 
 void DriveBase::ResetGyro(){

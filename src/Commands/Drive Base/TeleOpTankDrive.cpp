@@ -14,6 +14,7 @@ void TeleOpTankDrive::Execute(){
 	Robot::drivebase->DriveExponential(Robot::oi->GetDriveAxis(tankLeftAxis), -1 * Robot::oi->GetDriveAxis(tankRightAxis));
 	SmartDashboard::PutNumber("Left Speed", Robot::oi->GetDriveAxis(tankLeftAxis));
 	SmartDashboard::PutNumber("Right Speed", Robot::oi->GetDriveAxis(tankRightAxis));
+	SmartDashboard::PutNumber("Gyro Angle", Robot::drivebase->ReturnGyroPosition());
 }
 
 bool TeleOpTankDrive::IsFinished(){
