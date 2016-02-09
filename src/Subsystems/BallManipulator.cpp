@@ -4,7 +4,8 @@
 #include "../Commands/Ball Manipulator/TeleOpMoveIntake.h"
 
 BallManipulator::BallManipulator() : Subsystem("BallManipulator"){
-	intake_motor = new CANTalon(ballIntakeMotor);
+	front_intake_motor = new CANTalon(frontIntakeMotor);
+	back_intake_motor = new CANTalon(backIntakeMotor);
 	rotation_motor = new CANTalon(ballRotationMotor);
 	intake_potentiometer = new AnalogPotentiometer(ballPotentiometerChannel, 360, 0);
 
@@ -16,16 +17,25 @@ void BallManipulator::InitDefaultCommand(){
 }
 
 void BallManipulator::DriveIntake(float speed){
-	intake_motor->Set(speed);
+	float multiplier = prefs->GetFloat("RollerDirection", 1);
+	front_intake_motor->Set(speed * multiplier);
+	back_intake_motor->Set(speed * -multiplier);
 }
 
 float BallManipulator::ReturnIntakeSpeed(){
-	intake_motor->SetFeedbackDevice(CANTalon::QuadEncoder);
-	return intake_motor->GetEncVel();
+	front_intake_motor->SetFeedbackDevice(CANTalon::QuadEncoder);
+	return front_intake_motor->GetEncVel();
 }
 
 void BallManipulator::RotateManipulator(float speed){
-	rotation_motor->Set(speed);
+	bool forward = prefs->GetBoolean("BallForward", true);
+	if(forward){
+		rotation_motor->Set(speed * -1);
+	}
+	else{
+		rotation_motor->Set(speed);
+	}
+
 }
 
 float BallManipulator::ReturnManipulatorAngle(){

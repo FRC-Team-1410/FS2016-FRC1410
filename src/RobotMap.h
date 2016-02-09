@@ -21,7 +21,8 @@ const int rightClimberRotation = 6;
 const int leftClimberWinch = 7;
 
 //BallManipulator motors
-const int ballIntakeMotor = 8;
+const int frontIntakeMotor = 8;
+const int backIntakeMotor = 11;
 const int ballRotationMotor = 9;
 
 //DefenseManiuplator motors
