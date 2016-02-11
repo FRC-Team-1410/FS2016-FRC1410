@@ -19,11 +19,12 @@ void Robot::RobotInit(){
 	//auto_choice->AddDefault("Test Auto", new TestAuto());
 	//CameraServer::GetInstance()->SetQuality(50);
 	//CameraServer::GetInstance()->StartAutomaticCapture("cam0");
+	auto_command = new TestAuto();
 }
 
 void Robot::AutonomousInit(){
 	//auto_command = (Command *) auto_choice->GetSelected();
-	//auto_command->Start();
+	auto_command->Start();
 }
 
 void Robot::AutonomousPeriodic(){
@@ -31,7 +32,7 @@ void Robot::AutonomousPeriodic(){
 }
 
 void Robot::TeleopInit(){
-	//auto_command->Cancel();
+	auto_command->Cancel();
 }
 
 void Robot::TeleopPeriodic(){

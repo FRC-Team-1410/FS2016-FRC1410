@@ -23,8 +23,12 @@ public:
 	float ReturnEncoderDistance(float e1, float e2, float distance);
 	void ResetEncoderPosition();
 
+	void PutGyroAngle(float angle);
 	float ReturnGyroPosition();
 	void ResetGyro();
+	void CalibrateGyro();
+
+	void DriveStraight(float speed);
 };
 
 #endif

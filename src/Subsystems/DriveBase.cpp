@@ -69,13 +69,19 @@ float DriveBase::ReturnEncoderDistance(float e1, float e2, float distance){
 
 	distance = (e2 + e1) / 2;
 	SmartDashboard::PutNumber("Encoder Distance", distance);
+	SmartDashboard::PutNumber("Left Encoder", e1);
+	SmartDashboard::PutNumber("Right Encoder", e2);
 	return distance;
 }
 
 void DriveBase::ResetEncoderPosition(){
 	SmartDashboard::PutNumber("Encoder Distance", 0);
-	bl_motor->SetPosition(0);
-	br_motor->SetPosition(0);
+	fl_motor->SetPosition(0);
+	fr_motor->SetPosition(0);
+}
+
+void DriveBase::PutGyroAngle(float angle){
+	SmartDashboard::PutNumber("Gyro", angle);
 }
 
 float DriveBase::ReturnGyroPosition(){
@@ -86,11 +92,23 @@ float DriveBase::ReturnGyroPosition(){
 	SmartDashboard::PutNumber("Gyro Angle", angle);
 	angle *= -1;
 	return angle;**/
+	PutGyroAngle(drive_gyro->GetAngle());
 	return drive_gyro->GetAngle();
 }
 
 void DriveBase::ResetGyro(){
+	PutGyroAngle(0);
 	drive_gyro->Reset();
 }
 
+void DriveBase::CalibrateGyro(){
+	drive_gyro->Calibrate();
+}
 
+void DriveBase::DriveStraight(float speed){
+	RobotDrive * drive = new RobotDrive(fl_motor, bl_motor, fr_motor, br_motor);
+	drive->SetSafetyEnabled(false);
+	static const float kP = 0.03;
+	float angle = drive_gyro->GetAngle();
+	drive->Drive(speed, -angle * kP);
+}
