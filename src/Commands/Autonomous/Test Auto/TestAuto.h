@@ -4,10 +4,9 @@
 #include "Commands/CommandGroup.h"
 #include "WPILib.h"
 
-class TestAuto: public CommandGroup
-{
+class TestAuto: public CommandGroup{
 public:
-	TestAuto();
+	TestAuto(float distance);
 };
 
 #endif

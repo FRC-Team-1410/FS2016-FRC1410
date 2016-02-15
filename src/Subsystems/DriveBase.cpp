@@ -2,15 +2,16 @@
 #include "../RobotMap.h"
 #include "DriveBase.h"
 #include "Commands/Drive Base/TeleOpTankDrive.h"
+#include "SPI.h"
 
 DriveBase::DriveBase() : Subsystem("DriveBase"){
 	fl_motor = new CANTalon(frontLeftDrive);
 	fr_motor = new CANTalon(frontRightDrive);
 	bl_motor = new CANTalon(backLeftDrive);
 	br_motor = new CANTalon(backRightDrive);
-
 	drive_gyro = new AnalogGyro(autoDriveGyro);
-
+	drive_gyro->Calibrate();
+	drive_gyro->SetSensitivity(0.007);
 	prefs = Preferences::GetInstance();
 }
 

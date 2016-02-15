@@ -2,6 +2,7 @@
 #define DriveBase_H
 
 #include "WPILib.h"
+#include "SPI.h"
 
 class DriveBase: public Subsystem{
 private:

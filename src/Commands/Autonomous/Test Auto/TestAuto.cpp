@@ -1,5 +1,5 @@
 #include "TestAuto.h"
 #include "Test Auto Commands/TestAutoDriveStraight.h"
-TestAuto::TestAuto(){
-	AddSequential(new TestAutoDriveStraight());
+TestAuto::TestAuto(float distance){
+	AddSequential(new TestAutoDriveStraight(distance));
 }

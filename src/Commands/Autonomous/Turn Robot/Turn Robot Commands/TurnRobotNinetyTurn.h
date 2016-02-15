@@ -1,15 +1,14 @@
-#ifndef TestAutoDriveStraight_H
-#define TestAutoDriveStraight_H
+#ifndef TurnRobotNinetyTurn_H
+#define TurnRobotNinetyTurn_H
 
 #include "Commands/Command.h"
 #include "WPILib.h"
 
-class TestAutoDriveStraight: public Command {
+class TurnRobotNinetyTurn: public Command {
 private:
 	Preferences * prefs;
-	float ticks;
 public:
-	TestAutoDriveStraight(float distance);
+	TurnRobotNinetyTurn();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

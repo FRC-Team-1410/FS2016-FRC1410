@@ -19,7 +19,7 @@ void BallManipulator::InitDefaultCommand(){
 void BallManipulator::DriveIntake(float speed){
 	float multiplier = prefs->GetFloat("RollerDirection", 1);
 	front_intake_motor->Set(speed * multiplier);
-	back_intake_motor->Set(speed * -multiplier);
+	back_intake_motor->Set(speed * multiplier);
 }
 
 float BallManipulator::ReturnIntakeSpeed(){

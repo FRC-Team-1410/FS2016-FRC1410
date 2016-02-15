@@ -2,7 +2,8 @@
 #include "Robot.h"
 #include "../../../../RobotMap.h"
 
-TestAutoDriveStraight::TestAutoDriveStraight(){
+TestAutoDriveStraight::TestAutoDriveStraight(float distance){
+	ticks = distance;
 	Requires(Robot::drivebase);
 	prefs = Preferences::GetInstance();
 }
@@ -13,9 +14,9 @@ void TestAutoDriveStraight::Initialize(){
 }
 
 void TestAutoDriveStraight::Execute(){
-	float ticks = prefs->GetFloat("AutoTicks", 5000);
 	while(Robot::drivebase->ReturnEncoderDistance(0,0,0) <= ticks){
-		Robot::drivebase->DriveStraight(-0.5);
+		Robot::drivebase->DriveTank(-0.5, 0.5);
+		Robot::drivebase->ReturnGyroPosition();
 	}
 	//Robot::drivebase->DriveStraight(0.5);
 	//Wait(0.5);
