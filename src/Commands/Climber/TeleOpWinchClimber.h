@@ -7,10 +7,10 @@
 class TeleOpWinchClimber: public Command {
 private:
 	Preferences * prefs;
-	float speed;
+	float climber_speed;
 
 public:
-	TeleOpWinchClimber();
+	TeleOpWinchClimber(float speed);
 	void Initialize();
 	void Execute();
 	bool IsFinished();

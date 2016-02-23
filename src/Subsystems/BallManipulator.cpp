@@ -30,10 +30,10 @@ float BallManipulator::ReturnIntakeSpeed(){
 void BallManipulator::RotateManipulator(float speed){
 	bool forward = prefs->GetBoolean("BallForward", true);
 	if(forward){
-		rotation_motor->Set(speed * -1);
+		rotation_motor->Set(speed * -0.5);
 	}
 	else{
-		rotation_motor->Set(speed);
+		rotation_motor->Set(speed * 0.5);
 	}
 
 }

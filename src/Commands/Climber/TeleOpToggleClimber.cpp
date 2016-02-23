@@ -7,16 +7,16 @@ TeleOpToggleClimber::TeleOpToggleClimber(){
 
 	Requires(Robot::drivebase);
 
-	speed = prefs->GetFloat("Climber Speed", 0.5);
+	speed = prefs->GetFloat("RotateSpeed", 1);
 	move_up = true;
 }
 
 void TeleOpToggleClimber::Initialize(){
-	move_up = !move_up;
+	//move_up = !move_up;
 }
 
 void TeleOpToggleClimber::Execute(){
-	if(move_up){
+	/**if(move_up){
 		if(Robot::climber->ReturnUpLimit() == false){
 			Robot::climber->RotateClimber(speed);
 		}
@@ -26,16 +26,12 @@ void TeleOpToggleClimber::Execute(){
 		if(Robot::climber->ReturnDownLimit() == false){
 			Robot::climber->RotateClimber(-1 * speed);
 		}
-	}
+	}**/
+	Robot::climber->RotateClimber(Robot::oi->GetClimberAxis(climberRotationAxis) * speed);
 }
 
 bool TeleOpToggleClimber::IsFinished(){
-	if(move_up){
-		return Robot::climber->ReturnUpLimit();
-	}
-	else{
-		return Robot::climber->ReturnDownLimit();
-	}
+	return false;
 }
 
 void TeleOpToggleClimber::End(){

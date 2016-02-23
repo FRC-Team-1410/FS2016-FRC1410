@@ -5,8 +5,8 @@
 #include "SPI.h"
 
 Camera::Camera() : Subsystem("DriveBase"){
-	rotation_motor = new Servo(0);
-	tilt_motor = new Servo(1);
+	rotation_motor = new Servo(2);
+	tilt_motor = new Servo(0);
 	prefs = Preferences::GetInstance();
 }
 

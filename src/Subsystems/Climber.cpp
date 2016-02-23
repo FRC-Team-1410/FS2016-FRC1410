@@ -1,6 +1,7 @@
 #include "Robot.h"
 #include "../RobotMap.h"
 #include "Climber.h"
+#include "../Commands/Climber/TeleOpClimb.h"
 
 Climber::Climber() : Subsystem("Climber"){
 	left_rotation = new CANTalon(leftClimberRotation);
@@ -12,7 +13,7 @@ Climber::Climber() : Subsystem("Climber"){
 }
 
 void Climber::InitDefaultCommand(){
-
+	//SetDefaultCommand(new TeleOpClimb(0));
 }
 
 void Climber::RotateClimber(float speed){
@@ -25,11 +26,11 @@ void Climber::WinchClimber(float speed){
 }
 
 bool Climber::ReturnUpLimit(){
-	return left_winch->IsFwdLimitSwitchClosed();
+	return left_rotation->IsFwdLimitSwitchClosed();
 }
 
 bool Climber::ReturnDownLimit(){
-	return left_winch->IsRevLimitSwitchClosed();
+	return left_rotation->IsRevLimitSwitchClosed();
 }
 
 void Climber::ActuateRatchet(){

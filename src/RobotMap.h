@@ -17,13 +17,13 @@ const int backRightDrive = 4;
 
 //Climber motors
 const int leftClimberRotation = 5;
-const int rightClimberRotation = 6;
-const int leftClimberWinch = 7;
+const int rightClimberRotation = 7;
+const int leftClimberWinch = 8;
 
 //BallManipulator motors
-const int frontIntakeMotor = 8;
+const int frontIntakeMotor = 9;
 const int backIntakeMotor = 11;
-const int ballRotationMotor = 9;
+const int ballRotationMotor = 6;
 
 //DefenseManiuplator motors
 const int defenseRotationMotor = 10;
@@ -40,7 +40,14 @@ const int defensePotentiometerChannel = 2;
 const int tankLeftAxis = 1;
 const int tankRightAxis = 5;
 
-const int ballManipulatorMovement = 1;
+const int ballManipulatorMovement = 5;
+const int cameraTiltAxis = 1;
+const int cameraRotationAxis = 0;
+
+const int climberRotationAxis = 1;
+const int climberWinchButton = 1;
+const int climberUnwinchButton = 2;
+const int climberJustRotate = 3;
 
 
 //Buttons

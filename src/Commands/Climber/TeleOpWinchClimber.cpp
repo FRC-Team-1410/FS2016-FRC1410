@@ -2,11 +2,11 @@
 #include "Robot.h"
 #include "../../RobotMap.h"
 
-TeleOpWinchClimber::TeleOpWinchClimber(){
+TeleOpWinchClimber::TeleOpWinchClimber(float speed){
 	Requires(Robot::climber);
 
 	prefs = Preferences::GetInstance();
-	speed = prefs->GetFloat("Winch Speed", 0.5);
+	climber_speed = speed;
 }
 
 void TeleOpWinchClimber::Initialize(){
@@ -14,7 +14,7 @@ void TeleOpWinchClimber::Initialize(){
 }
 
 void TeleOpWinchClimber::Execute(){
-	Robot::climber->WinchClimber(speed);
+	Robot::climber->WinchClimber(climber_speed);
 }
 
 bool TeleOpWinchClimber::IsFinished(){
