@@ -6,8 +6,8 @@
 
 class TeleOpRollersOutwards: public Command {
 private:
-	Preferences * prefs;
-	float speed;
+	Preferences * prefs; //Preferences object to retrieve the the speed of the rollers
+	float speed; //Speed of the rollers
 public:
 	TeleOpRollersOutwards();
 	void Initialize();

@@ -24,8 +24,7 @@ const int leftClimberWinch = 8;
 const int climberServoPWM = 0;
 
 //BallManipulator motors
-const int frontIntakeMotor = 9;
-const int backIntakeMotor = 11;
+const int intakeMotorID = 9;
 const int ballRotationMotor = 6;
 
 //Camera servos

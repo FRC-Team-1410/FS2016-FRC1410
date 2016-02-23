@@ -5,20 +5,21 @@
 
 class BallManipulator: public Subsystem{
 private:
-	CANTalon * front_intake_motor;
-	CANTalon * rotation_motor;
-	Potentiometer * intake_potentiometer;
-	Preferences * prefs;
+	CANTalon * rotation_motor; //Motor controller for the motor that rotates the arm
+	CANTalon * intake_motor; //Motor controller for the motor that runs the intake rollers
+
+	Potentiometer * arm_potentiometer; //Potentiometer used in Autonomous
+
+	Preferences * prefs; //Preferences used to get values from SmartDashboard
 
 public:
 	BallManipulator();
 	void InitDefaultCommand();
-	void DriveIntake(float speed);
-	float ReturnIntakeSpeed();
-	void RotateManipulator(float speed);
-	float ReturnManipulatorAngle();
-	bool ReturnUpLimit();
-	bool ReturnDownLimit();
+
+	void SetRollers(float speed);
+
+	void RotateArm(float speed);
+	float ReturnArmAngle();
 };
 
 #endif

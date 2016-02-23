@@ -17,6 +17,7 @@ private:
 public:
 	DriveBase();
 	void InitDefaultCommand();
+
 	void DriveTank(float left_speed, float right_speed); //For driving in tank mode
 	void DriveExponential(float left_speed, float right_speed); //Drives in tank, but with an exponential curve for the inputs
 

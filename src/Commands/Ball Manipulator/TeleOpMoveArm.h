@@ -1,16 +1,14 @@
-#ifndef TeleOpMoveIntake_H
-#define TeleOpMoveIntake_H
+#ifndef TeleOpMoveArm_H
+#define TeleOpMoveArm_H
 
 #include "Commands/Command.h"
 #include "WPILib.h"
 
-class TeleOpMoveIntake: public Command {
+class TeleOpMoveArm: public Command {
 private:
-	bool up_limit;
-	bool down_limit;
 
 public:
-	TeleOpMoveIntake();
+	TeleOpMoveArm();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
