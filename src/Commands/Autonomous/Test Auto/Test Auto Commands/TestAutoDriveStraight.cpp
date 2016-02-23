@@ -28,7 +28,6 @@ bool TestAutoDriveStraight::IsFinished(){
 }
 
 void TestAutoDriveStraight::End(){
-	Robot::drivebase->DriveStraight(0);
 	Robot::drivebase->ResetEncoderPosition();
 }
 

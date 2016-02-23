@@ -1,14 +1,14 @@
-#ifndef TeleOpTankDrive_H
-#define TeleOpTankDrive_H
+#ifndef TeleOpDriveRobot_H
+#define TeleOpDriveRobot_H
 
 #include "Commands/Command.h"
 #include "WPILib.h"
 
-class TeleOpTankDrive: public Command {
+class TeleOpDriveRobot: public Command {
 private:
 
 public:
-	TeleOpTankDrive();
+	TeleOpDriveRobot();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

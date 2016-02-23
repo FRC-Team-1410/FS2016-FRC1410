@@ -1,3 +1,4 @@
+#include <Commands/Drive Base/TeleOpDriveRobot.h>
 #include "OI.h"
 #include "RobotMap.h"
 #include "Commands/Ball Manipulator/TeleOpMoveIntake.h"
@@ -5,7 +6,6 @@
 #include "Commands/Ball Manipulator/TeleOpRollersOutwards.h"
 #include "Commands/Climber/TeleOpToggleClimber.h"
 #include "Commands/Climber/TeleOpWinchCLimber.h"
-#include "Commands/Drive Base/TeleOpTankDrive.h"
 #include "Commands/Camera/TeleOpMoveCamera.h"
 #include "Commands/Climber/TeleOpClimb.h"
 
@@ -45,8 +45,6 @@ OI::OI(){
 	toggle_intake_inwards = new JoystickButton(operator_stick, toggleIntakeInwards);
 	toggle_intake_outwards = new JoystickButton(operator_stick, toggleIntakeOutwards);
 	winch_climber = new JoystickButton(operator_stick, winchClimber);
-	toggle_climber_solenoid = new JoystickButton(operator_stick, toggleClimberSolenoid);
-	//set_camera = new JoystickButton(camera_stick, 1);
 	rotate_climber = new JoystickButton(climber_stick, climberJustRotate);
 	winch_climb = new JoystickButton(climber_stick, climberWinchButton);
 	unwinch_climb = new JoystickButton(climber_stick, climberUnwinchButton);
@@ -54,9 +52,7 @@ OI::OI(){
 	toggle_intake_inwards->ToggleWhenPressed(new TeleOpRollersInwards());
 	toggle_intake_outwards->ToggleWhenPressed(new TeleOpRollersOutwards());
 	winch_climber->WhileHeld(new TeleOpWinchClimber(0.8));
-	toggle_climber_solenoid->ToggleWhenPressed(new TeleOpToggleClimber());
 	rotate_climber->WhileHeld(new TeleOpClimb(0));
-	//set_camera->ToggleWhenPressed(new TeleOpMoveCamera());
 	float climber_speed = prefs->GetFloat("ClimberSpeed", 0.8);
 	winch_climb->WhileHeld(new TeleOpClimb(climber_speed));
 	unwinch_climb->WhileHeld(new TeleOpClimb(climber_speed * -1));

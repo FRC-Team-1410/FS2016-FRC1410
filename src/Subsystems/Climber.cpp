@@ -1,19 +1,18 @@
 #include "Robot.h"
 #include "../RobotMap.h"
 #include "Climber.h"
-#include "../Commands/Climber/TeleOpClimb.h"
 
 Climber::Climber() : Subsystem("Climber"){
 	left_rotation = new CANTalon(leftClimberRotation);
 	right_rotation = new CANTalon(rightClimberRotation);
 	left_winch = new CANTalon(leftClimberWinch);
-	ratchet_actuator = new Servo(climberRatchetActuator);
+	ratchet_actuator = new Servo(climberServoPWM);
 
 	prefs = Preferences::GetInstance();
 }
 
 void Climber::InitDefaultCommand(){
-	//SetDefaultCommand(new TeleOpClimb(0));
+
 }
 
 void Climber::RotateClimber(float speed){

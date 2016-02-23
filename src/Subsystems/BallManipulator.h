@@ -6,7 +6,6 @@
 class BallManipulator: public Subsystem{
 private:
 	CANTalon * front_intake_motor;
-	CANTalon * back_intake_motor;
 	CANTalon * rotation_motor;
 	Potentiometer * intake_potentiometer;
 	Preferences * prefs;

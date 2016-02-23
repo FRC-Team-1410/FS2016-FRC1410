@@ -13,8 +13,6 @@ private:
 	JoystickButton * toggle_intake_inwards;
 	JoystickButton * toggle_intake_outwards;
 	JoystickButton * winch_climber;
-	JoystickButton * toggle_climber_solenoid;
-	//JoystickButton * set_camera;
 	JoystickButton * rotate_climber;
 	JoystickButton * winch_climb;
 	JoystickButton * unwinch_climb;

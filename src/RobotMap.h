@@ -20,21 +20,21 @@ const int leftClimberRotation = 5;
 const int rightClimberRotation = 7;
 const int leftClimberWinch = 8;
 
+//Climber servos
+const int climberServoPWM = 0;
+
 //BallManipulator motors
 const int frontIntakeMotor = 9;
 const int backIntakeMotor = 11;
 const int ballRotationMotor = 6;
 
-//DefenseManiuplator motors
-const int defenseRotationMotor = 10;
-
-//Actuators
-const int climberRatchetActuator = 1;
+//Camera servos
+const int cameraRotationServo = 2;
+const int cameraTiltServo = 3;
 
 //Analog inputs
 const int autoDriveGyro = 0;
 const int ballPotentiometerChannel = 1;
-const int defensePotentiometerChannel = 2;
 
 //Controller constants
 const int tankLeftAxis = 1;
