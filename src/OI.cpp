@@ -1,13 +1,13 @@
-#include <Commands/Ball Manipulator/TeleOpMoveArm.h>
-#include <Commands/Climber/TeleOpRotateClimber.h>
-#include <Commands/Drive Base/TeleOpDriveRobot.h>
 #include "OI.h"
 #include "RobotMap.h"
+#include "Commands/Ball Manipulator/TeleOpMoveArm.h"
 #include "Commands/Ball Manipulator/TeleOpRollersInwards.h"
 #include "Commands/Ball Manipulator/TeleOpRollersOutwards.h"
-#include "Commands/Climber/TeleOpWinchCLimber.h"
-#include "Commands/Camera/TeleOpMoveCamera.h"
+#include "Commands/Climber/TeleOpActuateServo.h"
 #include "Commands/Climber/TeleOpClimb.h"
+#include "Commands/Climber/TeleOpRotateClimber.h"
+#include "Commands/Climber/TeleOpWinchClimber.h"
+#include "Commands/Drive Base/TeleOpDriveRobot.h"
 
 const char inputShape[255] = {0,1,3,4,5,6,7,9,10,11,12,13,15,16,17,18,19,21,22,23,24,25,27,28,29,30,31,
  	        33,34,35,36,37,38,40,41,42,43,44,46,47,48,49,50,52,53,54,55,56,58,59,60,61,62,
@@ -42,20 +42,21 @@ OI::OI(){
 
 	prefs = Preferences::GetInstance();
 
-	toggle_intake_inwards = new JoystickButton(operator_stick, toggleIntakeInwards);
-	toggle_intake_outwards = new JoystickButton(operator_stick, toggleIntakeOutwards);
-	winch_climber = new JoystickButton(operator_stick, winchClimber);
-	rotate_climber = new JoystickButton(climber_stick, climberJustRotate);
-	winch_climb = new JoystickButton(climber_stick, climberWinchButton);
-	unwinch_climb = new JoystickButton(climber_stick, climberUnwinchButton);
+	rollers_in = new JoystickButton(operator_stick, 1);
+	rollers_out = new JoystickButton(operator_stick, 2);
+	winch_climber = new JoystickButton(climber_stick, 2);
+	unwinch_climber = new JoystickButton(climber_stick, 1);
+	rotate_climber = new JoystickButton(climber_stick, 3);
+	lock_gear = new JoystickButton(climber_stick, 8);
+	unlock_gear = new JoystickButton(climber_stick, 9);
 
-	toggle_intake_inwards->ToggleWhenPressed(new TeleOpRollersInwards());
-	toggle_intake_outwards->ToggleWhenPressed(new TeleOpRollersOutwards());
-	winch_climber->WhileHeld(new TeleOpWinchClimber(0.8));
+	rollers_in->ToggleWhenPressed(new TeleOpRollersInwards());
+	rollers_out->ToggleWhenPressed(new TeleOpRollersOutwards());
+	winch_climber->WhileHeld(new TeleOpClimb(-1));
+	unwinch_climber->WhileHeld(new TeleOpClimb(1));
 	rotate_climber->WhileHeld(new TeleOpClimb(0));
-	float climber_speed = prefs->GetFloat("ClimberSpeed", 0.8);
-	winch_climb->WhileHeld(new TeleOpClimb(climber_speed));
-	unwinch_climb->WhileHeld(new TeleOpClimb(climber_speed * -1));
+	lock_gear->ToggleWhenPressed(new TeleOpActuateServo(0.5));
+	unlock_gear->ToggleWhenPressed(new TeleOpActuateServo(1));
 }
 
 double OI::GetDriveAxis(int axis){

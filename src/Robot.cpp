@@ -6,14 +6,12 @@ OI * Robot::oi = NULL;
 DriveBase * Robot::drivebase = NULL;
 Climber * Robot::climber = NULL;
 BallManipulator * Robot::ballmanipulator = NULL;
-Camera * Robot::camera = NULL;
 
 void Robot::RobotInit(){
 	oi = new OI();
 	drivebase = new DriveBase();
 	climber = new Climber();
 	ballmanipulator = new BallManipulator();
-	camera = new Camera();
 
 	lw = LiveWindow::GetInstance();
 	

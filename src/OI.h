@@ -10,12 +10,13 @@ private:
 	Joystick * climber_stick;
 	Preferences * prefs;
 
-	JoystickButton * toggle_intake_inwards;
-	JoystickButton * toggle_intake_outwards;
+	JoystickButton * rollers_in;
+	JoystickButton * rollers_out;
 	JoystickButton * winch_climber;
+	JoystickButton * unwinch_climber;
 	JoystickButton * rotate_climber;
-	JoystickButton * winch_climb;
-	JoystickButton * unwinch_climb;
+	JoystickButton * lock_gear;
+	JoystickButton * unlock_gear;
 
 public:
 	OI();

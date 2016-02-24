@@ -7,7 +7,6 @@
 #include "Subsystems/DriveBase.h"
 #include "Subsystems/Climber.h"
 #include "Subsystems/BallManipulator.h"
-#include "Subsystems/Camera.h"
 
 class Robot: public IterativeRobot {
 public:
@@ -15,7 +14,6 @@ public:
 	static DriveBase * drivebase;
 	static Climber * climber;
 	static BallManipulator * ballmanipulator;
-	static Camera * camera;
 
 private:
 	LiveWindow * lw;
