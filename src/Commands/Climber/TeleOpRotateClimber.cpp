@@ -16,16 +16,21 @@ void TeleOpRotateClimber::Initialize(){
 
 void TeleOpRotateClimber::Execute(){
 	//This method runs while the command is being called
-	//The while loop is here so that the climber does not move if either the upper or lower limit is triggered
-	//If neither the upper or lower limit is triggered, the climber is rotated through values recieved from the y axis on the logitech controller
-	if(!Robot::climber->ReturnDownLimit() || !Robot::climber->ReturnUpLimit()){
-		Robot::climber->RotateClimber(Robot::oi->GetClimberAxis(climberRotationAxis));
-	}
+	//It sets the rotation of the climber to the value of GetClimberAxis
+	Robot::climber->RotateClimber(Robot::oi->GetClimberAxis(climberRotationAxis)); //Sets the rotation of the climber to the value from the oi
+
 }
 
 bool TeleOpRotateClimber::IsFinished(){
-	//This method returns true if either limit switch is triggered
-	return Robot::climber->ReturnDownLimit() || Robot::climber->ReturnUpLimit(); //Returns if either limit switch is triggered
+	//This method returns if the command is finished
+	if(Robot::oi->GetClimberAxis(climberRotationAxis) > 0){
+		//This is returned if the climber is rotating down
+		return Robot::climber->ReturnDownLimit(); //Returns if the lower limit is triggered
+	}
+	else if(Robot::oi->GetClimberAxis(climberRotationAxis) < 0){
+		//This returns if the climber is rotating up
+		return Robot::climber->ReturnUpLimit(); //Returns if the upper limit is triggered
+	}
 }
 
 void TeleOpRotateClimber::End(){

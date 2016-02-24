@@ -40,19 +40,21 @@ const int tankLeftAxis = 1;
 const int tankRightAxis = 5;
 
 const int ballManipulatorMovement = 5;
-const int cameraTiltAxis = 1;
-const int cameraRotationAxis = 0;
 
 const int climberRotationAxis = 1;
-const int climberWinchButton = 1;
-const int climberUnwinchButton = 2;
-const int climberJustRotate = 3;
 
+//Controllers
+const int driverStickPort = 0;
+const int operatorStickPort = 1;
+const int climberStickPort = 2;
 
 //Buttons
-const int toggleIntakeInwards = 1;
-const int toggleIntakeOutwards = 2;
-const int winchClimber = 3;
-const int toggleClimberSolenoid = 4;
+const int rollersInButton = 1;
+const int rollersOutButton = 2;
+const int winchClimberButton = 2;
+const int unwinchClimberButton = 1;
+const int rotateClimberButton = 3;
+const int lockGearButton = 8;
+const int unlockGearButton = 9;
 
 #endif /* ROBOTMAP_H_ */
