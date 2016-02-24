@@ -1,16 +1,16 @@
-#ifndef TeleOpWinchClimber_H
-#define TeleOpWinchClimber_H
+#ifndef TeleOpActuateServo_H
+#define TeleOpActuateServo_H
 
 #include "Commands/Command.h"
 #include "WPILib.h"
 
-class TeleOpWinchClimber: public Command {
+class TeleOpActuateServo: public Command {
 private:
 	Preferences * prefs; //Preferences object for retrieving values from the SmartDashboard
-	float climber_speed; //Speed retrieved from the constructor object
+	float servo_position; //Position retrieved from the constructor object
 
 public:
-	TeleOpWinchClimber(float speed);
+	TeleOpActuateServo(float position);
 	void Initialize();
 	void Execute();
 	bool IsFinished();

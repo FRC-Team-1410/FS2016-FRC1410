@@ -1,10 +1,10 @@
 #include <Commands/Ball Manipulator/TeleOpMoveArm.h>
+#include <Commands/Climber/TeleOpRotateClimber.h>
 #include <Commands/Drive Base/TeleOpDriveRobot.h>
 #include "OI.h"
 #include "RobotMap.h"
 #include "Commands/Ball Manipulator/TeleOpRollersInwards.h"
 #include "Commands/Ball Manipulator/TeleOpRollersOutwards.h"
-#include "Commands/Climber/TeleOpToggleClimber.h"
 #include "Commands/Climber/TeleOpWinchCLimber.h"
 #include "Commands/Camera/TeleOpMoveCamera.h"
 #include "Commands/Climber/TeleOpClimb.h"
