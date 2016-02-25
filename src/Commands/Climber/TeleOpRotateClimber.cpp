@@ -31,6 +31,10 @@ bool TeleOpRotateClimber::IsFinished(){
 		//This returns if the climber is rotating up
 		return Robot::climber->ReturnUpLimit(); //Returns if the upper limit is triggered
 	}
+	else{
+		//This only runs as the default
+		return false; //Returns false if neither of the above conditions is correct
+	}
 }
 
 void TeleOpRotateClimber::End(){
