@@ -10,7 +10,8 @@
 #include "WPILib.h" //Includes the WPI Library for the robot
 #include "Robot.h" //Includes the header file for this class
 //Include the header files for each autonomous that can be selected
-#include "Commands/Autonomous/Auto Cross Defense/AutoCrossDefense.h" //Includes the header file for TestAuto
+#include "Commands/Autonomous/Auto Cross Defense/AutoCrossDefense.h" //Includes the header file for AutoCrossDefense
+#include "Commands/Autonomous/Auto Shoot Low GOal/AutoShootLowGoal.h" //Includes the header file for AutoShootLowGoal
 
 OI * Robot::oi = NULL; //Sets the OI object to NULL
 DriveBase * Robot::drivebase = NULL; //Sets the DriveBase object to NULL
@@ -27,6 +28,7 @@ void Robot::RobotInit(){
 	
 	auto_choice = new SendableChooser(); //Instantiates the SendableChooser object
 	auto_choice->AddDefault("1 - AutoCrossDefense", new AutoCrossDefense()); //Adds the default Autonomous to the SendableChooser
+	auto_choice->AddObject("2 - AutoShootLowGoal", new AutoShootLowGoal()); //Adds AutoShootLowGoal to the SendableChooser
 	SmartDashboard::PutData("Autonomous Mode", auto_choice); //Puts all of the Autonomous choices on the SmartDashboard
 	CameraServer::GetInstance()->SetQuality(50); //Sets the quality of the Camera image to 50
 	CameraServer::GetInstance()->StartAutomaticCapture("cam0"); //Starts the Camera
