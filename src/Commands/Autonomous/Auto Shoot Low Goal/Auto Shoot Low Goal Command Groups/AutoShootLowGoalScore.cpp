@@ -1,5 +1,5 @@
 #include "AutoShootLowGoalScore.h"
 
-AutoCrossDefense::AutoCrossDefense(){
+AutoShootLowGoalScore::AutoShootLowGoalScore(){
 
 }

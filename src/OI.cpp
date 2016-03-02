@@ -59,9 +59,9 @@ OI::OI(){
 	rollers_out->ToggleWhenPressed(new TeleOpRollersOutwards()); //Toggles the rollers outwards when button is pressed
 	winch_climber->WhileHeld(new TeleOpClimb(-1)); //While held the climber is winched in and can be rotated
 	unwinch_climber->WhileHeld(new TeleOpClimb(1)); //While held the climber is winched out and can be rotated
-	rotate_climber->WhileHeld(new TeleOpClimb(0)); //While held the climber is not winched and can be rotated
-	lock_gear->ToggleWhenPressed(new TeleOpActuateServo(0.5)); //Toggles the servo towards the gear when button is pressed
-	unlock_gear->ToggleWhenPressed(new TeleOpActuateServo(1)); //Toggles the servo away from the gear when button is pressed
+	rotate_climber->WhileHeld(new TeleOpRotateClimber()); //While held the climber is not winched and can be rotated
+	lock_gear->ToggleWhenPressed(new TeleOpActuateServo(0.4)); //Toggles the servo towards the gear when button is pressed
+	unlock_gear->ToggleWhenPressed(new TeleOpActuateServo(0.75)); //Toggles the servo away from the gear when button is pressed
 }
 
 double OI::GetDriveAxis(int axis){

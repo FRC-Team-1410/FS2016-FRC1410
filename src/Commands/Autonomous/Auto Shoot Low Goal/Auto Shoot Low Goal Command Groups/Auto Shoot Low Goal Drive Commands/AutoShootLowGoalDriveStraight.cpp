@@ -1,7 +1,7 @@
 //Command that drives the robot forward under the low bar
 #include "AutoShootLowGoalDriveStraight.h" //Includes the header file for this class
 #include "Robot.h" //Includes Robot.h to use for methods from the subsystems
-#include "../../../../../../RobotMap.h" //Includes RobotMap.h for the constants stored in there
+#include "../../../../../RobotMap.h" //Includes RobotMap.h for the constants stored in there
 
 AutoShootLowGoalDriveStraight::AutoShootLowGoalDriveStraight(){
 	Requires(Robot::drivebase); //Requires the drivebase from Robot

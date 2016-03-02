@@ -47,7 +47,7 @@ void Robot::AutonomousPeriodic(){
 
 void Robot::TeleopInit(){
 	//This is the method that runs when TeleOp is initialized
-	auto_command->Cancel(); //Cancels the Autonomous Command
+	//auto_command->Cancel(); //Cancels the Autonomous Command
 }
 
 void Robot::TeleopPeriodic(){
