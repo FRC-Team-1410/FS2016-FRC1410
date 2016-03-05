@@ -12,6 +12,20 @@
 #include "Commands/Climber/TeleOpWinchClimber.h" //Includes the command to winch the climber
 #include "Commands/Drive Base/TeleOpDriveRobot.h" //Includes the command to drive the robot
 
+#include "Commands/Test/TestShootLowGoalDrive.h"
+#include "Commands/Test/TestShootLowGoalPrepare.h"
+#include "Commands/Test/TestShootLowGoalReach.h"
+#include "Commands/Test/TestShootLowGoalScore.h"
+#include "Commands/Test/TestShootLowGoalTurn.h"
+
+#include "Commands/Test/Test Shoot Low Goal Drive Commands/TestShootLowGoalDriveStraight.h"
+#include "Commands/Test/Test Shoot Low Goal Prepare Commands/TestShootLowGoalPrepareArm.h"
+#include "Commands/Test/Test Shoot Low Goal Reach Commands/TestShootLowGoalReachArm.h"
+#include "Commands/Test/Test Shoot Low Goal Reach Commands/TestShootLowGoalReachDrive.h"
+#include "Commands/Test/Test Shoot Low Goal Score Commands/TestShootLowGoalScoreRollers.h"
+#include "Commands/Test/Test Shoot Low Goal Score Commands/TestShootLowGoalScoreStop.h"
+#include "Commands/Test/Test Shoot Low Goal Turn Commands/TestShootLowGoalTurnDrive.h"
+
 //The following array is to create a deadband in the controllers
 const char inputShape[255] = {0,1,3,4,5,6,7,9,10,11,12,13,15,16,17,18,19,21,22,23,24,25,27,28,29,30,31,
  	        33,34,35,36,37,38,40,41,42,43,44,46,47,48,49,50,52,53,54,55,56,58,59,60,61,62,
@@ -62,6 +76,20 @@ OI::OI(){
 	rotate_climber->WhileHeld(new TeleOpRotateClimber()); //While held the climber is not winched and can be rotated
 	lock_gear->ToggleWhenPressed(new TeleOpActuateServo(0.4)); //Toggles the servo towards the gear when button is pressed
 	unlock_gear->ToggleWhenPressed(new TeleOpActuateServo(0.65)); //Toggles the servo away from the gear when button is pressed
+
+	SmartDashboard::PutData("TestShootLowGoalDrive", new TestShootLowGoalDrive());
+	SmartDashboard::PutData("TestShootLowGoalPrepare", new TestShootLowGoalPrepare());
+	SmartDashboard::PutData("TestShootLowGoalReach", new TestShootLowGoalReach());
+	SmartDashboard::PutData("TestShootLowGoalScore", new TestShootLowGoalScore());
+	SmartDashboard::PutData("TestShootLowGoalTurn", new TestShootLowGoalTurn());
+
+	SmartDashboard::PutData("TestShootLowGoalDriveStraight", new TestShootLowGoalDriveStraight());
+	SmartDashboard::PutData("TestShootLowGoalPrepareArm", new TestShootLowGoalPrepareArm());
+	SmartDashboard::PutData("TestShootLowGoalReachArm", new TestShootLowGoalReachArm());
+	SmartDashboard::PutData("TestShootLowGoalReachDrive", new TestShootLowGoalReachDrive());
+	SmartDashboard::PutData("TestShootLowGoalScoreRollers", new TestShootLowGoalScoreRollers());
+	SmartDashboard::PutData("TestShootLowGoalScoreStop", new TestShootLowGoalScoreStop());
+	SmartDashboard::PutData("TestShootLowGoalTurnDrive", new TestShootLowGoalTurnDrive());
 }
 
 double OI::GetDriveAxis(int axis){

@@ -1,14 +1,14 @@
-#ifndef AutoShootLowGoalPrepareRollers_H
-#define AutoShootLowGoalPrepareRollers_H
+#ifndef TestShootLowGoalScoreStop_H
+#define TestShootLowGoalScoreStop_H
 
 #include "Commands/Command.h"
 #include "WPILib.h"
 
-class AutoShootLowGoalPrepareRollers: public Command {
+class TestShootLowGoalScoreStop: public Command {
 private:
 	Preferences * prefs; //Preferences object to grab values from the SmartDashboard
 public:
-	AutoShootLowGoalPrepareRollers();
+	TestShootLowGoalScoreStop();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
