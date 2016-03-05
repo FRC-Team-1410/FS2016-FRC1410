@@ -19,14 +19,8 @@ void AutoCrossDefenseDriveStraight::Initialize(){
 
 void AutoCrossDefenseDriveStraight::Execute(){
 	//This method runs while the command is active
-	float ticks = prefs->GetFloat("AutoCrossDefenseTicks", 15000); //Retrieves the amount of ticks to be driven from the SmartDashboard
-	while(Robot::drivebase->ReturnEncoderDistance(0,0,0) <= 15000){
-		//This loop runs until the amount of ticks driven is equal to the amount of ticks desired
-		//1000 ticks is equal to about one foot of driving
-		Robot::drivebase->DriveTank(-0.5, 0.5); //Drives straight
-		Robot::drivebase->ReturnGyroPosition(); //Returns the angle from the gyro
-	}
-	End(); //Ends the command when the robot has driven the desired amount of ticks
+	Robot::drivebase->DriveTank(-0.5, 0.5);
+	Robot::drivebase->ReturnGyroPosition();
 }
 
 bool AutoCrossDefenseDriveStraight::IsFinished(){
@@ -39,13 +33,15 @@ bool AutoCrossDefenseDriveStraight::IsFinished(){
 	//A
 	//Y
 	//S
-	return true; //Returns true
+	float ticks = prefs->GetFloat("AutoCrossDefenseTicks", 15000);
+	return (Robot::drivebase->ReturnEncoderDistance(0, 0, 0) >= ticks); //Returns true
 }
 
 void AutoCrossDefenseDriveStraight::End(){
 	//This method is run when the command is ended
 	//It just cleans up
-	Robot::drivebase->ResetEncoderPosition(); //Resets the encoder position
+	//Robot::drivebase->ResetEncoderPosition(); //Resets the encoder position
+	Robot::drivebase->DriveTank(0, 0);
 }
 
 void AutoCrossDefenseDriveStraight::Interrupted(){

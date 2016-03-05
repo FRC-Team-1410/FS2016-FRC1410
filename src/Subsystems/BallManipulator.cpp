@@ -32,7 +32,7 @@ void BallManipulator::SetRollers(float speed){
 	//There is a multiplier who's value is set from SmartDashboard
 	//The multiplier allows us to make the rollers run faster or slower
 	//For example, if multiplier is 0.67, the rollers run at 2/3 of the input speed
-	float multiplier = prefs->GetFloat("RollerMultiplier", -1); //Retrieves the value of the multiplier (default value is 1)
+	float multiplier = prefs->GetFloat("BallManipulatorRollerMultiplier", -1); //Retrieves the value of the multiplier (default value is 1)
 	SmartDashboard::PutNumber("Roller Speed", speed * multiplier); //Puts the speed * multiplier on the SmartDashboard
 	intake_motor->Set(speed * multiplier); //Sets the speed of the rollers to the input speed times the multiplier
 }
@@ -42,7 +42,8 @@ void BallManipulator::RotateArm(float speed){
 	//There is also a multiplier who's value is set from SmartDashboard
 	//This multiplier slows down or speeds up the rate at which the arm rotates
 	//For example, if multiplier is 0.75, the arm rotates at 3/4 speed
-	float multiplier = prefs->GetFloat("ArmMultiplier", 0.5); //Retrieves the value of multiplier (default is 0.5)
+	float multiplier = prefs->GetFloat("BallManipulatorArmMultiplier", 0.5); //Retrieves the value of multiplier (default is 0.5)
+	SmartDashboard::PutNumber("Arm Speed", speed * multiplier);
 	rotation_motor->Set(speed * multiplier); //Sets the speed of the rotation to the input speed times multiplier
 }
 

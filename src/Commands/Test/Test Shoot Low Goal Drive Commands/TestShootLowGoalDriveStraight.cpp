@@ -1,34 +1,33 @@
 //Command that drives the robot forward under the low bar
-#include "AutoShootLowGoalDriveStraight.h"
+#include "TestShootLowGoalDriveStraight.h"
 #include "Robot.h"
-#include "../../../../../RobotMap.h"
+#include "../../../RobotMap.h"
 
-AutoShootLowGoalDriveStraight::AutoShootLowGoalDriveStraight(){
+TestShootLowGoalDriveStraight::TestShootLowGoalDriveStraight(){
 	Requires(Robot::drivebase);
 	prefs = Preferences::GetInstance();
 }
 
-void AutoShootLowGoalDriveStraight::Initialize(){
+void TestShootLowGoalDriveStraight::Initialize(){
 	Robot::drivebase->ResetGyro();
 	Robot::drivebase->ResetEncoderPosition();
 }
 
-void AutoShootLowGoalDriveStraight::Execute(){
-	float speed = prefs->GetFloat("AutoShootLowGoalDriveSpeed", 0.6);
-	Robot::drivebase->DriveTank(-speed, speed);
+void TestShootLowGoalDriveStraight::Execute(){
+	Robot::drivebase->DriveTank(-0.5, 0.5);
 	Robot::drivebase->ReturnGyroPosition();
 }
 
-bool AutoShootLowGoalDriveStraight::IsFinished(){
+bool TestShootLowGoalDriveStraight::IsFinished(){
 	float ticks = prefs->GetFloat("AutoShootLowGoalTicks", 14750);
 	return (Robot::drivebase->ReturnEncoderDistance(0, 0, 0) >= ticks);
 }
 
-void AutoShootLowGoalDriveStraight::End(){
+void TestShootLowGoalDriveStraight::End(){
 	Robot::drivebase->ResetEncoderPosition();
 	Robot::drivebase->DriveTank(0, 0);
 }
 
-void AutoShootLowGoalDriveStraight::Interrupted(){
+void TestShootLowGoalDriveStraight::Interrupted(){
 	End();
 }

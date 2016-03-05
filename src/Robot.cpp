@@ -12,10 +12,10 @@
 //Include the header files for each autonomous that can be selected
 #include "Commands/Autonomous/Auto Cross Defense/AutoCrossDefense.h" //Includes the header file for AutoCrossDefense
 #include "Commands/Autonomous/Auto Shoot Low Goal/AutoShootLowGoal.h" //Includes the header file for AutoShootLowGoal
-#include "Commands/Autonomous/Auto Shoot Low Goal/Auto Shoot Low Goal Command Groups/AutoShootLowGoalDrive.h"
-#include "Commands/Autonomous/Auto Shoot Low Goal/Auto Shoot Low Goal Command Groups/AutoShootLowGoalReach.h"
-#include "Commands/Autonomous/Auto Shoot Low Goal/Auto Shoot Low Goal Command Groups/AutoShootLowGoalScore.h"
+#include "Commands/Test/TestShootLowGoalPrepare.h"
+#include "Commands/Test/TestShootLowGoalDrive.h"
 #include "Commands/Autonomous/Auto Shoot Low Goal/Auto Shoot Low Goal Command Groups/AutoShootLowGoalTurn.h"
+
 OI * Robot::oi = NULL; //Sets the OI object to NULL
 DriveBase * Robot::drivebase = NULL; //Sets the DriveBase object to NULL
 Climber * Robot::climber = NULL; //Sets the Climber object to NULL
@@ -28,17 +28,16 @@ void Robot::RobotInit(){
 	ballmanipulator = new BallManipulator(); //Instantiates the BallManipulator object
 
 	lw = LiveWindow::GetInstance(); //Instantiates the LiveWindow object
-	
 	auto_choice = new SendableChooser(); //Instantiates the SendableChooser object
 	auto_choice->AddDefault("1 - AutoCrossDefense", new AutoCrossDefense()); //Adds the default Autonomous to the SendableChooser
 	auto_choice->AddObject("2 - AutoShootLowGoal", new AutoShootLowGoal()); //Adds AutoShootLowGoal to the SendableChooser
-	auto_choice->AddObject("3 - AutoShootLowGoalDrive", new AutoShootLowGoalDrive());
-	auto_choice->AddObject("4 - AutoShootLowGoalReach", new AutoShootLowGoalReach());
-	auto_choice->AddObject("5 - AutoShootLowGoalTurn", new AutoShootLowGoalTurn());
-	auto_choice->AddObject("6 - AutoShootLowGoalScore", new AutoShootLowGoalScore());
+	auto_choice->AddObject("3 - TestShootLowGoalPrepare", new TestShootLowGoalPrepare());
+	auto_choice->AddObject("4 - TestShootLowGoalDrive", new TestShootLowGoalDrive());
+	auto_choice->AddObject("5 - TestShootLowGoalTurn", new AutoShootLowGoalTurn());
 	SmartDashboard::PutData("AutonomousMode", auto_choice); //Puts all of the Autonomous choices on the SmartDashboard
 	CameraServer::GetInstance()->SetQuality(50); //Sets the quality of the Camera image to 50
 	CameraServer::GetInstance()->StartAutomaticCapture("cam0"); //Starts the Camera
+	auto_command = new AutoCrossDefense();
 }
 
 void Robot::AutonomousInit(){

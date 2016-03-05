@@ -31,7 +31,7 @@ void Climber::RotateClimber(float speed){
 	//This method rotates the climber
 	//There is a multiplier to tone down the speed at which it rotates
 	//The method sets both rotation motors to the same speed * multiplier
-	float multiplier = prefs->GetFloat("ClimberMultiplier", 1); //Retrieves the multiplier from SmartDashboard (default is 1)
+	float multiplier = prefs->GetFloat("ClimberRotateSpeed", 1); //Retrieves the multiplier from SmartDashboard (default is 1)
 	SmartDashboard::PutNumber("Climber Speed", speed * multiplier); //Puts the speed of the climber on the SmartDashboard
 	left_rotation->Set(speed * multiplier); //Sets left_rotation to speed * multiplier
 	right_rotation->Set(speed * multiplier); //Sets right_rotation to speed * multiplier
@@ -42,7 +42,7 @@ void Climber::WinchClimber(float speed){
 	//There is also a multiplier to tone down the winch's speed
 	//This multiplier is pulled from the SmartDashboard
 	//Sets the winch motor to speed * multiplier
-	float multiplier = prefs->GetFloat("WinchMultiplier", 0.8); //Retrieves the multiplier from SmartDashboard (default is 0.8)
+	float multiplier = prefs->GetFloat("ClimberWinchSpeed", -0.8); //Retrieves the multiplier from SmartDashboard (default is 0.8)
 	SmartDashboard::PutNumber("Winch Speed", speed * multiplier); //Puts the speed of the winch on to SmartDashboard
 	winch_motor->Set(speed * multiplier); //Sets winch_motor to speed * multiplier
 }

@@ -68,7 +68,7 @@ void DriveBase::DriveExponential(float l, float r){
 	//So here is our polynomial drive.
 	float left_exponential; //This will become the value sent to the left motors
 	float right_exponential; //This will become the value sent to the right motors
-	int exponential_mode = prefs->GetInt("ExponentialMode", 1); //Retrieves the selected mode from the SmartDashboard preferences
+	int exponential_mode = prefs->GetInt("DriveBaseExponentialMode", 4); //Retrieves the selected mode from the SmartDashboard preferences
 
 	if(exponential_mode == 1){
 		//This is exponential mode 1

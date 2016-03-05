@@ -16,26 +16,13 @@ void AutoShootLowGoalTurnDrive::Initialize(){
 
 void AutoShootLowGoalTurnDrive::Execute(){
 	//This method runs while the command is active
-	float angle = prefs->GetFloat("AutoShootLowGoalAngle", 28.359); //Retrieves the angle to be driven from the SmartDashboard
-	while(Robot::drivebase->ReturnGyroPosition() <= angle){
-		//This loop runs until the robot has turned to the angle desired
-		//The angle is in degrees
-		Robot::drivebase->DriveTank(-0.5, -0.5); //Turns to the right
-	}
-	End(); //Ends the command when the robot has turned to the expected angle
+	float speed = prefs->GetFloat("AutoShootLowGoalDriveSpeed", 0.6);
+	Robot::drivebase->DriveTank(-speed, -speed); //Turns to the right
 }
 
 bool AutoShootLowGoalTurnDrive::IsFinished(){
-	//This runs when the scheduler checks if the command is done
-	//The command is always done
-	//ALWAYS
-	//A
-	//L
-	//W
-	//A
-	//Y
-	//S
-	return true; //Returns true
+	float angle = prefs->GetFloat("AutoShootLowGoalTurnAngle", 56); //Retrieves the angle to be driven from the SmartDashboard
+	return Robot::drivebase->ReturnGyroPosition() >= angle; //Returns true
 }
 
 void AutoShootLowGoalTurnDrive::End(){

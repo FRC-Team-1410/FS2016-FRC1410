@@ -18,7 +18,8 @@ TeleOpWinchClimber::TeleOpWinchClimber(float speed){
 }
 
 void TeleOpWinchClimber::Initialize(){
-	Robot::climber->MoveServo(0.75); //Unlocks the winch
+	float unlock_position = prefs->GetFloat("ClimberUnlockPosition", 0.65);
+	Robot::climber->MoveServo(unlock_position); //Unlocks the winch
 }
 
 void TeleOpWinchClimber::Execute(){
@@ -36,8 +37,9 @@ bool TeleOpWinchClimber::IsFinished(){
 void TeleOpWinchClimber::End(){
 	//This runs when the command is ended
 	//It basically stops the winch
+	float lock_position = prefs->GetFloat("ClimberLockPosition", 0.35);
 	Robot::climber->WinchClimber(0); //This sets the winch to 0
-	Robot::climber->MoveServo(0.4); //Locks the winch when the command is done
+	Robot::climber->MoveServo(lock_position); //Locks the winch when the command is done
 }
 
 void TeleOpWinchClimber::Interrupted(){
