@@ -4,5 +4,5 @@
 
 AutoShootLowGoalReach::AutoShootLowGoalReach(){
 	AddParallel(new AutoShootLowGoalReachDrive());
-	AddParallel(new AutoShootLowGoalReachArm());
+	//AddParallel(new AutoShootLowGoalReachArm());
 }

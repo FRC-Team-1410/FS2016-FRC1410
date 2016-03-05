@@ -16,7 +16,7 @@ void AutoShootLowGoalDriveStraight::Initialize(){
 
 void AutoShootLowGoalDriveStraight::Execute(){
 	//This method runs while the command is active
-	float ticks = prefs->GetFloat("AutoShootLowGoalTicks", 16583); //Retrieves the amount of ticks to be driven from the SmartDashboard
+	float ticks = prefs->GetFloat("AutoShootLowGoalTicks", 15000); //Retrieves the amount of ticks to be driven from the SmartDashboard
 	while(Robot::drivebase->ReturnEncoderDistance(0,0,0) <= ticks){
 		//This loop runs until the amount of ticks driven is equal to the amount of ticks desired
 		//1000 ticks is equal to about one foot of driving

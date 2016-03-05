@@ -61,7 +61,7 @@ OI::OI(){
 	unwinch_climber->WhileHeld(new TeleOpClimb(1)); //While held the climber is winched out and can be rotated
 	rotate_climber->WhileHeld(new TeleOpRotateClimber()); //While held the climber is not winched and can be rotated
 	lock_gear->ToggleWhenPressed(new TeleOpActuateServo(0.4)); //Toggles the servo towards the gear when button is pressed
-	unlock_gear->ToggleWhenPressed(new TeleOpActuateServo(0.75)); //Toggles the servo away from the gear when button is pressed
+	unlock_gear->ToggleWhenPressed(new TeleOpActuateServo(0.65)); //Toggles the servo away from the gear when button is pressed
 }
 
 double OI::GetDriveAxis(int axis){
