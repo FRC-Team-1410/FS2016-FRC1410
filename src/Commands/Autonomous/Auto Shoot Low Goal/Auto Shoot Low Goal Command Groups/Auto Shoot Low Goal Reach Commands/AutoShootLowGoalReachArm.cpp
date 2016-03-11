@@ -16,7 +16,14 @@ void AutoShootLowGoalReachArm::Initialize(){
 void AutoShootLowGoalReachArm::Execute(){
 	//This method runs while the command is active
 	float speed = prefs->GetFloat("AutoshootLowGoalArmSpeed", -1); //Retrieves the speed for the arm from the SmartDashboard
-	Robot::ballmanipulator->RotateArm(-speed);
+	float angle = prefs->GetFloat("AutoShootLowGoalArmBackwards",  307); //Retrieves the angle to move the arm from the SmartDashboard
+	if(Robot::ballmanipulator->ReturnArmAngle() > angle){
+		Robot::ballmanipulator->RotateArm(-speed);
+	}
+	else{
+		Robot::ballmanipulator->RotateArm(0);
+		End();
+	}
 }
 
 bool AutoShootLowGoalReachArm::IsFinished(){

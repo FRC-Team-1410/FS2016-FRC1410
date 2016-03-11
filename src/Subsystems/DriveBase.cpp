@@ -119,7 +119,7 @@ float DriveBase::ReturnEncoderDistance(float left_encoder, float right_encoder, 
 	//For the 2016 robot it is about 1000 ticks per foot
 	//We are not converting ticks to feet because it is not accurate enough
 	//And the awesome grip of our wheels means each foot we drive raises the ticks per foot
-	left_encoder = fl_motor->GetEncPosition() * -1; //Retrieves the value of the left encoder
+	left_encoder = fl_motor->GetEncPosition() * 1; //Retrieves the value of the left encoder
 	right_encoder = fr_motor->GetEncPosition() * -1; //Retrieves the value of the right encoder and inverts it
 
 	distance = (left_encoder + right_encoder) / 2; //Averages the values from both encoders
