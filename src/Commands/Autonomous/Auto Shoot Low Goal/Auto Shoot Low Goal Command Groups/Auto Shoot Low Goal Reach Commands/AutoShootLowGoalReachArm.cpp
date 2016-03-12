@@ -16,12 +16,16 @@ void AutoShootLowGoalReachArm::Initialize(){
 void AutoShootLowGoalReachArm::Execute(){
 	//This method runs while the command is active
 	float speed = prefs->GetFloat("AutoshootLowGoalArmSpeed", -1); //Retrieves the speed for the arm from the SmartDashboard
-	float angle = prefs->GetFloat("AutoShootLowGoalArmBackwards",  307); //Retrieves the angle to move the arm from the SmartDashboard
+	float angle = prefs->GetFloat("AutoShootLowGoalArmBackwards",  145); //Retrieves the angle to move the arm from the SmartDashboard
+	float rollers = prefs->GetFloat("AutoShootLowGoalRollerSpeed", -0.75); //Retrieves the angle to move the arm from the SmartDashboard
+
 	if(Robot::ballmanipulator->ReturnArmAngle() > angle){
 		Robot::ballmanipulator->RotateArm(-speed);
+		Robot::ballmanipulator->SetRollers(-rollers);
 	}
 	else{
 		Robot::ballmanipulator->RotateArm(0);
+		Robot::ballmanipulator->SetRollers(-rollers);
 		End();
 	}
 }
@@ -36,7 +40,7 @@ bool AutoShootLowGoalReachArm::IsFinished(){
 	//A
 	//Y
 	//S
-	float angle = prefs->GetFloat("AutoShootLowGoalArmBackwards",  307); //Retrieves the angle to move the arm from the SmartDashboard
+	float angle = prefs->GetFloat("AutoShootLowGoalArmBackwards",  145); //Retrieves the angle to move the arm from the SmartDashboard
 	return ((angle - 5) < Robot::ballmanipulator->ReturnArmAngle()) && (Robot::ballmanipulator->ReturnArmAngle() < (angle + 5));
 }
 

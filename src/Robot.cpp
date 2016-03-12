@@ -29,9 +29,9 @@ void Robot::RobotInit(){
 	auto_choice->AddDefault("1 - AutoShootLowGoal", new AutoShootLowGoal());
 	auto_choice->AddObject("2 - AutoCrossDefense", new AutoCrossDefense()); //Adds the default Autonomous to the SendableChooser
 	SmartDashboard::PutData("AutonomousMode", auto_choice); //Puts all of the Autonomous choices on the SmartDashboard
-	CameraServer::GetInstance()->SetQuality(50); //Sets the quality of the Camera image to 50
-	CameraServer::GetInstance()->StartAutomaticCapture("cam0"); //Starts the Camera
-	auto_command = new AutoCrossDefense();
+	//CameraServer::GetInstance()->SetQuality(50); //Sets the quality of the Camera image to 50
+	//CameraServer::GetInstance()->StartAutomaticCapture("cam0"); //Starts the Camera
+	auto_command = new AutoShootLowGoal();
 }
 
 void Robot::AutonomousInit(){

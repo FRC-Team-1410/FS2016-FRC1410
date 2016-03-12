@@ -3,6 +3,6 @@
 #include "Auto Shoot Low Goal Reach Commands/AutoShootLowGoalReachArm.h"
 
 AutoShootLowGoalReach::AutoShootLowGoalReach(){
+	//AddSequential(new AutoShootLowGoalReachArm());
 	AddParallel(new AutoShootLowGoalReachDrive());
-	AddParallel(new AutoShootLowGoalReachArm());
 }
