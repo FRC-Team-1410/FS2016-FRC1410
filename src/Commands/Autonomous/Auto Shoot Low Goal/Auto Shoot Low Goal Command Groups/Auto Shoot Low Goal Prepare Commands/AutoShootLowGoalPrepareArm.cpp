@@ -20,7 +20,7 @@ void AutoShootLowGoalPrepareArm::Execute(){
 }
 
 bool AutoShootLowGoalPrepareArm::IsFinished(){
-	float angle = prefs->GetFloat("AutoShootLowGoalArmForward", 210);
+	float angle = prefs->GetFloat("AutoShootLowGoalArmForward", 35);
 	return ((angle - 5) < Robot::ballmanipulator->ReturnArmAngle()) && (Robot::ballmanipulator->ReturnArmAngle() < (angle + 5));
 }
 

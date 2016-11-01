@@ -42,7 +42,7 @@ void Climber::WinchClimber(float speed){
 	//There is also a multiplier to tone down the winch's speed
 	//This multiplier is pulled from the SmartDashboard
 	//Sets the winch motor to speed * multiplier
-	float multiplier = prefs->GetFloat("ClimberWinchSpeed", -0.8); //Retrieves the multiplier from SmartDashboard (default is 0.8)
+	float multiplier = prefs->GetFloat("ClimberWinchSpeed", 1.0); //Retrieves the multiplier from SmartDashboard (default is 0.8)
 	SmartDashboard::PutNumber("Winch Speed", speed * multiplier); //Puts the speed of the winch on to SmartDashboard
 	winch_motor->Set(speed * multiplier); //Sets winch_motor to speed * multiplier
 }

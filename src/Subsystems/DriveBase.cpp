@@ -68,7 +68,7 @@ void DriveBase::DriveExponential(float l, float r){
 	//So here is our polynomial drive.
 	float left_exponential; //This will become the value sent to the left motors
 	float right_exponential; //This will become the value sent to the right motors
-	int exponential_mode = prefs->GetInt("DriveBaseExponentialMode", 4); //Retrieves the selected mode from the SmartDashboard preferences
+	int exponential_mode = prefs->GetInt("DriveBaseExponentialMode", 1); //Retrieves the selected mode from the SmartDashboard preferences
 
 	if(exponential_mode == 1){
 		//This is exponential mode 1
@@ -126,7 +126,7 @@ float DriveBase::ReturnEncoderDistance(float left_encoder, float right_encoder, 
 	SmartDashboard::PutNumber("Encoder Distance", distance); //Places the average encoder distance in SmartDashboard
 	SmartDashboard::PutNumber("Left Encoder", left_encoder); //Places the left encoder distance in SmartDashboard
 	SmartDashboard::PutNumber("Right Encoder", right_encoder); //Places the right encoder distance in the SmartDashboard
-	return distance; //Returns the average encoder distance
+	return right_encoder; //Returns the average encoder distance
 }
 
 void DriveBase::ResetEncoderPosition(){

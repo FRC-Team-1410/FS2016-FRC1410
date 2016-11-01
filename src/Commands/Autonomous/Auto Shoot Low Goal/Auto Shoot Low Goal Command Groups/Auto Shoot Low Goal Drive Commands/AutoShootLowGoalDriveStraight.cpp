@@ -20,7 +20,7 @@ void AutoShootLowGoalDriveStraight::Execute(){
 }
 
 bool AutoShootLowGoalDriveStraight::IsFinished(){
-	float ticks = prefs->GetFloat("AutoShootLowGoalTicks", 14750);
+	float ticks = prefs->GetFloat("AutoShootLowGoalTicks", 19500);
 	return (Robot::drivebase->ReturnEncoderDistance(0, 0, 0) >= ticks);
 }
 

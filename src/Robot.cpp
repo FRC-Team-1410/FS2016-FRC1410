@@ -26,8 +26,8 @@ void Robot::RobotInit(){
 
 	lw = LiveWindow::GetInstance(); //Instantiates the LiveWindow object
 	auto_choice = new SendableChooser(); //Instantiates the SendableChooser object
-	auto_choice->AddDefault("1 - AutoShootLowGoal", new AutoShootLowGoal());
-	auto_choice->AddObject("2 - AutoCrossDefense", new AutoCrossDefense()); //Adds the default Autonomous to the SendableChooser
+	auto_choice->AddDefault("2 - AutoCrossDefense", new AutoCrossDefense()); //Adds the default Autonomous to the SendableChooser
+	auto_choice->AddObject("1 - AutoShootLowGoal", new AutoShootLowGoal());
 	SmartDashboard::PutData("AutonomousMode", auto_choice); //Puts all of the Autonomous choices on the SmartDashboard
 	//CameraServer::GetInstance()->SetQuality(50); //Sets the quality of the Camera image to 50
 	//CameraServer::GetInstance()->StartAutomaticCapture("cam0"); //Starts the Camera

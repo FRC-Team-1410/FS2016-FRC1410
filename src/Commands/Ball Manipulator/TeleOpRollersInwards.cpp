@@ -9,12 +9,12 @@ TeleOpRollersInwards::TeleOpRollersInwards(){
 	SetInterruptible(true); //Says the command can be interrupted (not sure if this is needed)
 
 	prefs = Preferences::GetInstance(); //Initializes the prefs object in this class
-	speed = prefs->GetFloat("BallManipulatorRollerSpeed", 0.5); //Sets speed to the value retrieved from the SmartDashboard (default is 0.5)
+	speed = prefs->GetFloat("BallManipulatorRollerSpeed", 1.0); //Sets speed to the value retrieved from the SmartDashboard (default is 0.5)
 }
 
 void TeleOpRollersInwards::Initialize(){
 	//Whenever the command is initialized it will retrieve the speed needed to be used
-	speed = prefs->GetFloat("BallManipulatorRollerSpeed", 0.5); //Sets speed to the value retrieved from the SmartDashboard (default is 0.5)
+	speed = prefs->GetFloat("BallManipulatorRollerSpeed", 1.0); //Sets speed to the value retrieved from the SmartDashboard (default is 0.5)
 }
 
 void TeleOpRollersInwards::Execute(){

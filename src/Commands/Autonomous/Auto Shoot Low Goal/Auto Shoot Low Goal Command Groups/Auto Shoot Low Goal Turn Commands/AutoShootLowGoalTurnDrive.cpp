@@ -21,7 +21,7 @@ void AutoShootLowGoalTurnDrive::Execute(){
 }
 
 bool AutoShootLowGoalTurnDrive::IsFinished(){
-	float angle = prefs->GetFloat("AutoShootLowGoalTurnAngle", 56); //Retrieves the angle to be driven from the SmartDashboard
+	float angle = prefs->GetFloat("AutoShootLowGoalTurnAngle", 60); //Retrieves the angle to be driven from the SmartDashboard
 	return Robot::drivebase->ReturnGyroPosition() >= angle; //Returns true
 }
 

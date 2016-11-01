@@ -30,7 +30,7 @@ bool AutoShootLowGoalReachDrive::IsFinished(){
 	//A
 	//Y
 	//S
-	float ticks = prefs->GetFloat("AutoShootLowGoalReachTicks", 10300); //Retrieves the ticks to be driven from the SmartDashboard
+	float ticks = prefs->GetFloat("AutoShootLowGoalReachTicks", 10500); //Retrieves the ticks to be driven from the SmartDashboard
 	return (Robot::drivebase->ReturnEncoderDistance(0, 0, 0) >= ticks); //Returns true
 }
 
